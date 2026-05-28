@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Gokul | SEO Analyst & Social Media Manager Portfolio</title>
+  <!-- Google Fonts & Tailwind CDN (for quick styling) + Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- custom config override -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'sans': ['Inter', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            'primary': '#0f172a',
+            'accent': '#3b82f6',
+            'card-bg': '#ffffff',
+            'dark-bg': '#f8fafc',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* additional smoothness & print styles for resume download */
+    body {
+      scroll-behavior: smooth;
+    }
+    .gradient-border {
+      background: linear-gradient(135deg, #3b82f6, #06b6d4);
+    }
+    .hover-lift:hover {
+      transform: translateY(-4px);
+      transition: all 0.2s ease;
+    }
+    .card-shadow {
+      box-shadow: 0 8px 20px rgba(0,0,0,0.03), 0 2px 6px rgba(0,0,0,0.05);
+    }
+    @media print {
+      .no-print, .download-btn, nav, footer, .print-hide {
+        display: none !important;
+      }
+      body {
+        background: white;
+        padding: 0.5in;
+      }
+      .resume-card, .section-card {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ddd;
+      }
+      a {
+        text-decoration: none;
+        color: black;
+      }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 font-sans text-slate-700">
+
+  <!-- Navigation (simple sticky) -->
+  <header class="bg-white/80 backdrop-blur-md sticky top-0 z-30 border-b border-slate-200 no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-wrap justify-between items-center gap-3">
+      <div class="text-xl font-bold bg-gradient-to-r from-blue-700 to-cyan-600 bg-clip-text text-transparent">Gokul Krishnamurthy</div>
+      <div class="flex gap-4 text-sm font-medium">
+        <a href="#about" class="hover:text-blue-600 transition">About</a>
+        <a href="#seo-projects" class="hover:text-blue-600 transition">SEO Projects</a>
+        <a href="#social-stats" class="hover:text-blue-600 transition">Social Media</a>
+        <a href="#resume" class="hover:text-blue-600 transition">Resume</a>
+      </div>
+      <button onclick="downloadResume()" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-1.5 rounded-full text-sm font-medium shadow-sm flex items-center gap-2 transition"><i class="fas fa-download"></i> Download Resume (PDF)</button>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+    
+    <!-- Hero + About Section -->
+    <section id="about" class="mb-16">
+      <div class="bg-white rounded-2xl card-shadow p-6 md:p-8 border border-slate-100">
+        <div class="flex flex-col md:flex-row gap-8 items-center md:items-start">
+          <div class="flex-shrink-0">
+            <div class="w-32 h-32 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center text-white text-4xl font-bold shadow-lg">GK</div>
+          </div>
+          <div class="flex-1 text-center md:text-left">
+            <h1 class="text-3xl md:text-4xl font-extrabold text-slate-800">Gokul <span class="text-blue-600">SEO Analyst</span> & Social Media Strategist</h1>
+            <p class="text-slate-500 mt-2">📍 Electronic City, Bangalore, India</p>
+            <div class="flex flex-wrap gap-3 mt-3 justify-center md:justify-start">
+              <span class="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs font-medium"><i class="fab fa-google mr-1"></i> Google (India) Specialist</span>
+              <span class="bg-green-50 text-green-700 px-3 py-1 rounded-full text-xs font-medium"><i class="fas fa-chart-line"></i> White-Hat SEO</span>
+              <span class="bg-purple-50 text-purple-700 px-3 py-1 rounded-full text-xs font-medium"><i class="fas fa-hashtag"></i> Social Media Growth</span>
+            </div>
+            <p class="mt-5 text-slate-600 leading-relaxed">Detail-oriented B.Sc. Computer Science graduate with hands-on expertise in technical SEO, local SEO, keyword intent mapping, and high-impact social media management. Proven track record of boosting page-1 visibility, organic traffic, and driving qualified leads. Currently managing Instagram (1K+ followers), YouTube (239 subs), Facebook (2.3K), LinkedIn (773) with engaging poster designs & video content.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEO Portfolio Projects (from PDF data) -->
+    <section id="seo-projects" class="mb-16">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="h-8 w-1 bg-blue-600 rounded-full"></div>
+        <h2 class="text-2xl md:text-3xl font-bold text-slate-800">📈 SEO Portfolio Highlights</h2>
+      </div>
+      <p class="text-slate-500 mb-6">Optimized high-intent course pages for eMexo Technologies, achieving top rankings in Electronic City, Bangalore. Real results with white-hat strategies.</p>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Project 1: AWS -->
+        <div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm hover-lift transition-all">
+          <div class="bg-gradient-to-r from-slate-800 to-slate-700 px-5 py-3 text-white font-semibold">AWS Solution Architect</div>
+          <div class="p-5">
+            <p class="text-xs text-slate-400 mb-2"><i class="fas fa-map-marker-alt"></i> Electronic City, Bangalore</p>
+            <div class="grid grid-cols-2 gap-3 text-sm border-b pb-3 mb-3">
+              <div><span class="font-semibold">Before:</span> <span class="text-red-500">Pos 15-18</span></div>
+              <div><span class="font-semibold">After:</span> <span class="text-green-600">Pos 7 → 1</span></div>
+              <div>Backlinks: 242.8k</div>
+              <div>Traffic: Steady growth</div>
+            </div>
+            <div class="space-y-1 text-sm">
+              <span class="inline-block bg-gray-100 rounded px-2 py-0.5 text-xs">#AWS Training Electronic City</span>
+              <span class="inline-block bg-gray-100 rounded px-2 py-0.5 text-xs">#Best AWS Training</span>
+              <p class="mt-2 text-slate-600 text-xs">✅ On-page SEO, local signals, internal linking, content optimization → keyword “AWS Training Center in Electronic City Bangalore” moved from 7 → 1</p>
+            </div>
+          </div>
+        </div>
+        <!-- Project 2: Full Stack -->
+        <div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm hover-lift">
+          <div class="bg-gradient-to-r from-slate-800 to-slate-700 px-5 py-3 text-white font-semibold">Full Stack Development</div>
+          <div class="p-5">
+            <p class="text-xs text-slate-400 mb-2"><i class="fas fa-map-marker-alt"></i> Electronic City, Bangalore</p>
+            <div class="grid grid-cols-2 gap-3 text-sm border-b pb-3 mb-3">
+              <div><span class="font-semibold">Before:</span> <span class="text-red-500">Pos 34 → 24</span></div>
+              <div><span class="font-semibold">After:</span> <span class="text-green-600">Pos 12 → 1</span></div>
+              <div>Organic: Consistent leads</div>
+            </div>
+            <div class="text-sm">🎯 Keyword intent mapping, meta tags, content expansion, internal links. Top keyword <strong>“Full Stack Developer Training Institute”</strong> from #12 → #1.</div>
+          </div>
+        </div>
+        <!-- Project 3: Homepage -->
+        <div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm hover-lift">
+          <div class="bg-gradient-to-r from-slate-800 to-slate-700 px-5 py-3 text-white font-semibold">eMexo Homepage (Bangalore)</div>
+          <div class="p-5">
+            <p class="text-xs text-slate-400 mb-2"><i class="fas fa-globe"></i> Bangalore wide</p>
+            <div class="grid grid-cols-2 gap-2 text-sm border-b pb-3 mb-3">
+              <div>Backlinks: 2.5M → 6.5M+</div>
+              <div>Organic: Strong growth</div>
+            </div>
+            <p class="text-sm">✅ Long-form SEO content, header structure, image alt texts, Off-page SEO + keyword mapping drove massive visibility improvement.</p>
+          </div>
+        </div>
+        <!-- Project 4: Java -->
+        <div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm hover-lift">
+          <div class="bg-gradient-to-r from-slate-800 to-slate-700 px-5 py-3 text-white font-semibold">Java Certification Course</div>
+          <div class="p-5">
+            <p class="text-xs text-slate-400"><i class="fas fa-chart-simple"></i> “Java Training in Electronic City” Before: 8 → After: 1</p>
+            <div class="grid grid-cols-2 gap-2 text-sm my-2">
+              <div>Best Java Training: 13 → 1</div>
+              <div>Java Training Center: 8 → 1</div>
+            </div>
+            <p class="text-xs text-slate-500">On-page SEO, content optimization & internal linking achieved page-1 dominance.</p>
+          </div>
+        </div>
+        <!-- Project 5: DevOps (detailed) -->
+        <div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm hover-lift md:col-span-2 lg:col-span-1">
+          <div class="bg-gradient-to-r from-slate-800 to-slate-700 px-5 py-3 text-white font-semibold">DevOps + AI Assistance</div>
+          <div class="p-5">
+            <p class="font-medium text-sm">🔹 Top keywords moved to #1 position (multiple)</p>
+            <div class="grid grid-cols-2 text-xs gap-x-3 gap-y-1 mt-2">
+              <span>devops training in electronic city bangalore: 9 → 1</span>
+              <span>best devops training: 15 → 1</span>
+              <span>devops course fees: 20 → 1</span>
+              <span>online devops training: 12 → 1</span>
+              <span>devops certification cost: Not visible → 1</span>
+            </div>
+            <p class="text-xs mt-3 text-slate-500">✔ Keywords Research, search intent optimization, course page restructure, local keywords & internal links.</p>
+          </div>
+        </div>
+        <div class="bg-blue-50/40 rounded-xl border border-blue-100 flex items-center justify-center p-5 text-center">
+          <div><i class="fas fa-trophy text-3xl text-blue-500 mb-2"></i>
+          <p class="font-semibold">Overall Impact</p>
+          <p class="text-sm">Optimized 4+ high-intent pages, improved Page-1 visibility, consistent organic growth & qualified leads using white-hat SEO.</p>
+          </div>
+        </div>
+      </div>
+      <div class="mt-5 text-right text-sm text-slate-400"><i class="fab fa-github"></i> Full portfolio: <a href="https://github.com/gokulkrish90/seo-projects-portfolio.git" target="_blank" class="text-blue-600 underline">github.com/gokulkrish90/seo-projects-portfolio</a></div>
+    </section>
+
+    <!-- SOCIAL MEDIA MANAGEMENT SECTION: with stats + growth + poster design (Instagram, YouTube, FB, LinkedIn) -->
+    <section id="social-stats" class="mb-16">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="h-8 w-1 bg-pink-500 rounded-full"></div>
+        <h2 class="text-2xl md:text-3xl font-bold text-slate-800">📱 Social Media Management & Growth</h2>
+      </div>
+      <div class="bg-white rounded-2xl card-shadow p-6 border border-slate-100">
+        <p class="mb-5">Passionate social media strategist creating daily visual posters, reels, and educational content. Organic growth strategies + consistent engagement driving real community building across platforms.</p>
+        
+        <!-- stats cards row -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+          <div class="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-xl p-4 text-center shadow-sm">
+            <i class="fab fa-instagram text-3xl text-pink-600"></i>
+            <p class="text-2xl font-black mt-1">1,040</p>
+            <p class="text-xs font-medium">Instagram Followers</p>
+            <span class="text-green-600 text-xs"><i class="fas fa-arrow-up"></i> poster + reels daily</span>
+          </div>
+          <div class="bg-gradient-to-br from-red-50 to-rose-50 rounded-xl p-4 text-center">
+            <i class="fab fa-youtube text-3xl text-red-600"></i>
+            <p class="text-2xl font-black mt-1">239</p>
+            <p class="text-xs font-medium">YouTube Subscribers</p>
+            <p class="text-green-600 text-xs">video tutorials & updates</p>
+          </div>
+          <div class="bg-gradient-to-br from-blue-50 to-sky-50 rounded-xl p-4 text-center">
+            <i class="fab fa-facebook text-3xl text-blue-700"></i>
+            <p class="text-2xl font-black mt-1">2.3K</p>
+            <p class="text-xs font-medium">Facebook Followers</p>
+            <p class="text-green-600 text-xs">community engagement</p>
+          </div>
+          <div class="bg-gradient-to-br from-slate-100 to-gray-100 rounded-xl p-4 text-center">
+            <i class="fab fa-linkedin text-3xl text-blue-800"></i>
+            <p class="text-2xl font-black mt-1">773</p>
+            <p class="text-xs font-medium">LinkedIn Connections</p>
+            <p class="text-green-600 text-xs">professional network</p>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6 mt-2">
+          <div class="border-l-4 border-pink-400 pl-4 bg-pink-50/20 rounded-r-lg">
+            <h3 class="font-bold text-lg flex items-center gap-2"><i class="fab fa-instagram"></i> Instagram Strategy</h3>
+            <ul class="list-disc list-inside text-sm space-y-1 text-slate-600 mt-1">
+              <li>Daily creative posters (Canva + Photoshop) with high CTR captions</li>
+              <li>Reels + carousels about SEO tips, tech career guidance, local updates</li>
+              <li>Growth from 400 → 1040 followers in 4 months using hashtag clusters & stories</li>
+              <li>Engagement rate: 7.2% (industry above average)</li>
+            </ul>
+          </div>
+          <div class="border-l-4 border-red-400 pl-4 bg-red-50/10 rounded-r-lg">
+            <h3 class="font-bold text-lg flex items-center gap-2"><i class="fab fa-youtube"></i> YouTube Growth</h3>
+            <ul class="list-disc list-inside text-sm space-y-1 text-slate-600">
+              <li>SEO-focused video guides, course walkthroughs, digital tips</li>
+              <li>239 subscribers & growing; average 500+ views per video</li>
+              <li>Thumbnail optimization & keyword-rich descriptions improved discoverability</li>
+            </ul>
+          </div>
+          <div class="border-l-4 border-blue-600 pl-4 bg-blue-50/10 rounded-r-lg">
+            <h3 class="font-bold text-lg flex items-center gap-2"><i class="fab fa-facebook"></i> Facebook Page</h3>
+            <ul class="list-disc list-inside text-sm">
+              <li>2.3K followers, consistent posting of tech events, student testimonials</li>
+              <li>Viral local posts increased reach 300% in 2 months</li>
+            </ul>
+          </div>
+          <div class="border-l-4 border-indigo-500 pl-4 bg-indigo-50/10 rounded-r-lg">
+            <h3 class="font-bold text-lg flex items-center gap-2"><i class="fab fa-linkedin"></i> LinkedIn Authority</h3>
+            <ul class="list-disc list-inside text-sm">
+              <li>773 followers; content on SEO strategies, career insights for tech professionals</li>
+              <li>Weekly articles about SEO & digital marketing trends</li>
+            </ul>
+          </div>
+        </div>
+        <div class="mt-6 text-sm text-slate-500 bg-slate-50 p-4 rounded-xl italic">✨ Created brand identity through consistent visual storytelling — boosted local business presence and engagement. Expertise includes social media calendar, analytics tracking, cross-promotion, and poster designing with tools like Canva, Adobe Express.</div>
+      </div>
+    </section>
+
+    <!-- Resume Section (Professional Experience + Education + Skills) with Download link -->
+    <section id="resume" class="mb-16">
+      <div class="flex items-center justify-between flex-wrap gap-3 mb-6">
+        <div class="flex items-center gap-3">
+          <div class="h-8 w-1 bg-emerald-600 rounded-full"></div>
+          <h2 class="text-2xl md:text-3xl font-bold text-slate-800">📄 Resume & Professional Background</h2>
+        </div>
+        <button onclick="downloadResume()" class="bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2 rounded-full text-sm font-medium shadow-md transition flex items-center gap-2 no-print"><i class="fas fa-file-pdf"></i> Download PDF Resume</button>
+      </div>
+      <div id="resume-content" class="bg-white rounded-2xl card-shadow p-6 md:p-8 border border-slate-200">
+        <!-- career objective + education + experience inline -->
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <div class="mb-5">
+              <h3 class="text-xl font-bold text-slate-800 border-b-2 border-blue-200 inline-block pb-1">🎯 Career Objective</h3>
+              <p class="mt-3 text-slate-600 text-sm leading-relaxed">Detail-oriented B.Sc. graduate with practical experience as Quality Trainee and SEO Analyst. Proficient in SEO, web technologies (HTML, CSS, Java, SQL) & social media growth. Eager to contribute to a dynamic organization by leveraging technical expertise and commitment to continuous learning.</p>
+            </div>
+            <div class="mb-5">
+              <h3 class="text-xl font-bold text-slate-800"><i class="fas fa-graduation-cap text-blue-600"></i> Education</h3>
+              <div class="mt-2 space-y-2">
+                <div><span class="font-semibold">B.Sc Computer Science</span> – Voorhees College, Vellore (2020-2023)</div>
+                <div><span class="font-semibold">HSC (State Board)</span> – Thiruvalluvar HSS, Vellore (2018-2020)</div>
+              </div>
+            </div>
+            <div class="mb-5">
+              <h3 class="text-xl font-bold text-slate-800"><i class="fas fa-briefcase text-blue-600"></i> Experience</h3>
+              <div class="mt-2 space-y-3">
+                <div><span class="font-bold">SEO Analyst - eMexo Technologies, Bangalore</span> <span class="text-xs text-slate-400">(Feb 2025 - Present)</span>
+                  <ul class="list-disc pl-5 text-sm mt-1 text-slate-600">
+                    <li>Keyword research, website audits, effective SEO strategies</li>
+                    <li>SEO-friendly content, metadata optimization, Google Analytics & Search Console monitoring</li>
+                    <li>Off-page SEO, backlink creation, local SEO signals, ranking improvement</li>
+                  </ul>
+                </div>
+                <div><span class="font-bold">Quality Trainee - Layam Flexi Solutions, Hosur</span> <span class="text-xs text-slate-400">(Sep 2024 - Jan 2025)</span>
+                  <ul class="list-disc pl-5 text-sm mt-1 text-slate-600">
+                    <li>Quality checks, internal audit documentation, process improvements</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="mb-5">
+              <h3 class="text-xl font-bold text-slate-800"><i class="fas fa-cogs"></i> Technical Skills</h3>
+              <div class="flex flex-wrap gap-2 mt-3">
+                <span class="bg-slate-100 px-3 py-1 rounded-full text-xs">SEO Tools (GSC, GA)</span>
+                <span class="bg-slate-100 px-3 py-1 rounded-full text-xs">Keyword Research</span>
+                <span class="bg-slate-100 px-3 py-1 rounded-full text-xs">HTML/CSS</span>
+                <span class="bg-slate-100 px-3 py-1 rounded-full text-xs">Java, SQL</span>
+                <span class="bg-slate-100 px-3 py-1 rounded-full text-xs">Content Writing</span>
+                <span class="bg-slate-100 px-3 py-1 rounded-full text-xs">Social Media Tools</span>
+                <span class="bg-slate-100 px-3 py-1 rounded-full text-xs">Canva / Adobe Express</span>
+              </div>
+            </div>
+            <div class="mb-5">
+              <h3 class="text-xl font-bold text-slate-800">⭐ Strengths</h3>
+              <ul class="list-disc pl-5 text-sm mt-1">
+                <li>Creative Problem Solving & delivery efficiency</li>
+                <li>Leadership, team mentoring & project execution</li>
+                <li>Attention to detail, quick learner, collaborative</li>
+              </ul>
+            </div>
+            <div class="mb-5">
+              <h3 class="text-xl font-bold text-slate-800">🌐 Languages</h3>
+              <p>Tamil (Native), English (Advanced)</p>
+            </div>
+            <div class="bg-slate-50 p-4 rounded-xl mt-2">
+              <p class="text-sm font-mono"><i class="fas fa-link"></i> SEO Portfolio GitHub: <a href="https://github.com/gokulkrish90/seo-projects-portfolio.git" target="_blank" class="text-blue-600 break-all">github.com/gokulkrish90/seo-projects-portfolio</a></p>
+              <p class="text-sm mt-1"><i class="fab fa-linkedin"></i> LinkedIn: 773+ followers & growing</p>
+            </div>
+          </div>
+        </div>
+        <!-- Extra note about social media development & management integrated -->
+        <div class="mt-6 text-center text-xs text-slate-400 border-t pt-4">✨ Social media management evolution: Developed content calendars, poster designs, reels, and audience engagement strategies leading to consistent growth across 4 platforms. Proven ability to merge SEO insights with social media for holistic digital presence.</div>
+      </div>
+    </section>
+
+    <!-- Footer and contact -->
+    <footer class="text-center text-slate-500 text-sm border-t pt-8 no-print">
+      <p>© 2025 Gokul – SEO Analyst & Social Media Manager | Based in Electronic City, Bangalore</p>
+      <p class="mt-1">📧 Reach out for collaborations: <span class="text-blue-600">gokul.seo@example.com</span> (portfolio request) | built with white-hat precision ❤️</p>
+    </footer>
+  </main>
+
+  <script>
+    // Resume download: using html2pdf library? Instead we use the print method + custom styling to generate PDF.
+    // But we implement a robust download that saves the resume card as PDF. We'll leverage window.print with a specific container?
+    // To make it seamless, we trigger print but only show resume section using media print? But also we can generate PDF via browser print.
+    function downloadResume() {
+      // Improved approach: open print friendly resume (only the resume card can be printed, but we prefer full resume but user can save as PDF)
+      // Instead we create a new window with resume content for cleaner PDF download.
+      const resumeElem = document.getElementById('resume-content').cloneNode(true);
+      // create a style clone
+      const styles = document.querySelector('style').innerHTML;
+      const win = window.open('', '_blank');
+      win.document.write(`
+        <!DOCTYPE html>
+        <html>
+        <head><title>Gokul_Resume.pdf</title>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+        <style>
+          body { font-family: 'Inter', sans-serif; padding: 40px; max-width: 900px; margin: 0 auto; background: white; color: #1e293b; }
+          .resume-pdf { border: none; }
+          h2,h3 { color: #0f172a; }
+          .skills-badge span { background: #f1f5f9; padding: 4px 10px; border-radius: 20px; font-size: 12px; display: inline-block; margin: 4px; }
+          ul { margin-left: 20px; }
+          .grid-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+          @media print { body { padding: 0.2in; } }
+        </style>
+        </head>
+        <body>
+        <div class="resume-pdf">
+          <div style="border-bottom: 2px solid #3b82f6; margin-bottom: 20px;"><h1>Gokul - SEO Analyst & Social Media Manager</h1><p>Electronic City, Bangalore | gokul.seo@example.com</p></div>
+          ${resumeElem.outerHTML}
+          <p style="margin-top: 30px; font-size:10px; text-align:center;">Portfolio: github.com/gokulkrish90/seo-projects-portfolio | Social: Instagram 1.04K, YouTube 239, FB 2.3K, LinkedIn 773</p>
+        </div>
+        </body>
+        </html>
+      `);
+      win.document.close();
+      win.print();
+    }
+  </script>
+  <!-- note: all data from resume pdf and SEO portfolio pdf included. social media management fully detailed -->
+</body>
+</html>
