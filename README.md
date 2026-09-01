@@ -129,7 +129,7 @@ Click [here](https://github.com/gokulkrish90/gokul-portfolio/raw/main/Gokul_Resu
 
 ## 📧 Contact
 
-**Email:** gokul.seo@example.com *(update with your real email)*
+**Email:** gokulkrishnan1106@gmail.com *(update with your real email)*
 
 **Location:** Electronic City, Bangalore, India
 
